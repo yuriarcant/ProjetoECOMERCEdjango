@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+<!-- <h3> Criar Conta </h3>
+
+{% if erro == 'preenchimento' %}
+<p>Preencha todas as irfomações do formulário corretamente para criar uma conta</p>
+{% endif %}
+
+{% if erro == 'email_invalido' %}
+<P>Seu e-mail es´ta invalido, tente novamente com outro e-mail</P>
+{% endif %}
+
+{% if erro == 'usuario_existente' %}
+<P>Já possue um usuario com esse e-mail. <a href="{% url 'fazer_login' %}">Faça seu login aqui </a> </P>
+{% endif %}
+
+{% if erro == 'senha_diferentes' %}
+<p> Senhas necessitam ser iguais</p>
+{% endif %}
+
+
+
+<form action=" {% url 'criar_conta' %}" method="post">
+    {% csrf_token %}
+    <input type="email" name="email", placeholder="Email">
+    <input type="password" name="senha", placeholder="Senha">
+    <input type="password" name="confirmacao_senha", placeholder="Confirmação da senha">
+    <button type="submit">Entrar</button>
+</form>
+
+<a href="{% url 'fazer_login' %}">Já possui uma conta? Faça seu login aqui.</a> -->
+
+
+
+
+
+<main class="principal">
+    <section class="conta">
+    
+
+      <div class="conta__container">
+        <div class="checkout__titulos">
+          <p class="checkout__titulo">Crie sua Conta</p>
+        </div>
+        {% if erro == 'preenchimento' %}
+        <p>Preencha todas as irfomações do formulário corretamente para criar uma conta</p>
+        {% endif %}
+
+        {% if erro == 'email_invalido' %}
+        <P>Seu e-mail es´ta invalido, tente novamente com outro e-mail</P>
+        {% endif %}
+
+        {% if erro == 'usuario_existente' %}
+        <P>Já possue um usuario com esse e-mail. <a href="{% url 'fazer_login' %}">Faça seu login aqui </a> </P>
+        {% endif %}
+
+        {% if erro == 'senha_diferentes' %}
+        <p> Senhas necessitam ser iguais</p>
+        {% endif %}
+
+        <form
+          class="conta__form"
+          action="{% url 'criar_conta' %}"
+          method="post"
+        >
+        {% csrf_token %}
+          
+ 
+          <div class="conta__item conta__item--email ">
+            <label for="email">E-mail</label>
+            <input name="email" type="email"   />
+          </div>
+
+          <div class="conta__item">
+            <label for="senha">Senha</label>
+            <input name="senha"  type="password"   />
+          </div>
+
+          <div class="conta__item">
+            <label for="confirmacao_senha">Confirmação da senha</label>
+            <input name="confirmacao_senha"  type="password"   />
+          </div>
+
+          <button class="subtotal__botao" type="submit">
+            Fazer Login
+          </button>
+        </form>
+
+        <a href="{% url 'fazer_login' %}">Já possui uma conta? Faça seu login aqui.</a>
+      </div>
+
+    </section>
+  </main>
+
+{% endblock %}
